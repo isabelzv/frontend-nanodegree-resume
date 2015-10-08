@@ -8,9 +8,9 @@
 // var role = "Web Developer";
 // var formattedRole = HTMLheaderRole.replace("%data%", role);
 
-$("#header").append(formattedRole);
-
-$("#header").prepend(formattedName);
+// Example of appending and prepending to the header
+// $("#header").append(formattedRole);
+// $("#header").prepend(formattedName);
 
 
 var bio = {
@@ -33,26 +33,40 @@ var bio = {
 // bio["city"] = "Boulder, CO";
 
 var work = {
-	"Software": [
+	// TODO add description properties to position objects. 
+	"jobs": [
 		{
 			"employer": "Microsoft", 
 			"location": "Redmond, WA",
-			"position": "SDT",
-			"dates": "02/15 - 06/15"
-		}
-	],
-	"Education": [
+			"title": "SDT",
+			"dates": "02/15 - 06/15",
+			"description": ""
+		},
+		{
+			"employer": "Stohke.com", 
+			"location": "Bellevue, WA",
+			"title": "QA Specialist",
+			"dates": "07/13 - 09/14",
+			"description": "- Performed in-depth blackbox testing of mobile applications on Windows Phone and IOS platforms"+
+						   "- Designed and executed test plans for various aspects of the website and mobile application"+
+						   "- Communicated with developers to ensure issues were addressed"+ 
+						   "- Collaborated with other testers to ensure full testing coverage of production and development sites as well as"+
+						   "mobile applications across an array of platforms for multiple releases"+
+						   "- Initiated a new line of Quality Assurance within the testing process focusing on UI design"
+		},
 		{
 			"employer": "Peace River South School District", 
 			"location": "Dawson Creek, BC, Canada",
-			"position": "Teacher",
-			"dates": "01/10 - 06/10"
+			"title": "Teacher",
+			"dates": "01/10 - 06/10",
+			"description": ""
 		},
 		{
 			"employer": "Rocky Mountain Flatbread Education Society", 
 			"location": "Vancouver, BC, Canada",
-			"position": "Program Developer",
-			"dates": "09/06 - 09/10"			
+			"title": "Program Developer",
+			"dates": "09/06 - 09/10",
+			"description": ""			
 		}
 	]
 }
@@ -100,13 +114,13 @@ var Education = {
     ]
 }
 
-var projects = {
-	[
+var projects = 
+	[ 	
 		{
 			"title": "Portfolio",
 			"dates": "08/15 - 09/15",
-			"description": "Created a website to host my portfolio. My first front end web development project,
-			I learnt a lot about HTML and CSS"
+			"description": "Created a website to host my portfolio. My first front end web development project "+
+						   "I learnt a lot about HTML and CSS",
 			"images": "http://isabelzv.github.io"
 		},
 		{
@@ -116,19 +130,47 @@ var projects = {
 			"images": "http://example"
 		}
 	]
-}
+
 
 // the following two lines of code have errors (I don't know why).
 // $("#main").append(bio.welcome message);
 // $("#main").append(bio.pictureURL);
 
-$("#main").append(bio.skills);
-$("#main").append(bio.role);
-$("#main").append(bio.name);
-$("#main").append(bio.employment);
-$("#main").append(bio.school);
-$("#main").append(education.name);
-$("#main").append(work.lastEmployer);
+// Example of appending object properties to the html
+// $("#main").append(bio.skills);
+// $("#main").append(bio.role);
+// $("#main").append(bio.name);
+// $("#main").append(bio.employment);
+// $("#main").append(bio.school);
+// $("#main").append(education.name);
+// $("#main").append(work.lastEmployer);
+
+
+
+if (bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+
+	var formattedSkill = HTMLskills.replace('%data%', bio.skills[0]);
+	$("#skills").append(formattedSkill);
+	var formattedSkill = HTMLskills.replace('%data%', bio.skills[1]);
+	$("#skills").append(formattedSkill);
+	var formattedSkill = HTMLskills.replace('%data%', bio.skills[2]);
+	$("#skills").append(formattedSkill);
+	var formattedSkill = HTMLskills.replace('%data%', bio.skills[3]);
+	$("#skills").append(formattedSkill);
+} 
+
+for (job in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+
+	var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
+	var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
+	var formattedEmployerTitle = formattedEmployer + formattedTitle;
+	
+	$(".work-entry:last").append(formattedEmployerTitle);
+}
+
+
 
 
 
