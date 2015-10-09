@@ -33,6 +33,42 @@ var bio = {
 // bio.city = "Boulder, CO";
 // bio["city"] = "Boulder, CO";
 
+//format name and role and append to header
+var formattedName = HTMLheaderName.replace('%data%', bio.name);
+$("#header").append(formattedName);
+var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+$("#header").append(formattedRole);
+// TODO bioPic url is creating an error - sort it out.
+// var formattedBioPic = HTMLbioPic.replace('%data', bio.bioPic);
+// $("#header").append(formattedBioPic);
+
+//format and append contact info
+var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
+$('#topContacts').append(formattedMobile);
+var formattedEmail = HTMLmobile.replace('%data%', bio.contacts.email);
+$('#topContacts').append(formattedEmail);
+var formattedGitHub = HTMLmobile.replace('%data%', bio.contacts.GitHub);
+$('#topContacts').append(formattedGitHub);
+var formattedWebSite = HTMLwebSite.replace('%data%', bio.contacts.webSite);
+$('#topContacts').append(formattedWebSite);
+var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
+$('#topContacts').append(formattedLocation);
+
+// Example of formatting and displaying bio.skills property without using a function.
+if (bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+
+	var formattedSkill = HTMLskills.replace('%data%', bio.skills[0]);
+	$("#skills").append(formattedSkill);
+	var formattedSkill = HTMLskills.replace('%data%', bio.skills[1]);
+	$("#skills").append(formattedSkill);
+	var formattedSkill = HTMLskills.replace('%data%', bio.skills[2]);
+	$("#skills").append(formattedSkill);
+	var formattedSkill = HTMLskills.replace('%data%', bio.skills[3]);
+	$("#skills").append(formattedSkill);
+} 
+
+
 var work = {
 	// TODO add description properties to position objects. 
 	"jobs": [
@@ -71,6 +107,24 @@ var work = {
 		}
 	]
 }
+
+// display() function property to work object that formats and apppends other properties in work object.
+work.display = function() {
+	for (job in work.jobs) {
+		$("#workExperience").append(HTMLworkStart);
+		var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
+		var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
+		var formattedEmployerTitle = formattedEmployer + formattedTitle;
+		$(".work-entry:last").append(formattedEmployerTitle);
+		var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
+		$(".work-entry:last").append(formattedDates);
+		var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
+		$(".work-entry:last").append(formattedLocation);
+		var formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
+		$(".work-entry:last").append(formattedDescription);
+	}	
+}
+work.display();
 
 // Example of the bracket notation for objects in JS
 // var education = {}
@@ -118,6 +172,24 @@ var education = {
     ]
 }
 
+//display() function property for education object.
+education.display = function() {
+	for (school in education.schools) {
+		$("#education").append(HTMLschoolStart);
+		var formattedName = HTMLschoolName.replace('%data%', education.schools[school].name);
+		$(".education-entry:last").append(formattedName);
+		var formattedDegree = HTMLschoolDegree.replace('%data%', education.schools[school].degree);
+		$(".education-entry:last").append(formattedDegree);
+		var formattedDates = HTMLschoolDates.replace('%data%', education.schools[school].dates);
+		$(".education-entry:last").append(formattedDates);
+		var formattedLocation = HTMLschoolLocation.replace('%data%', education.schools[school].location);
+		$(".education-entry:last").append(formattedLocation);
+		var formattedMajor = HTMLschoolMajor.replace('%data%', education.schools[school].major);
+		$(".education-entry:last").append(formattedMajor);
+	}	
+}
+education.display();
+
 var projects = {
 	"projects": [
 		{
@@ -136,101 +208,6 @@ var projects = {
 	]
 }
 
-// the following two lines of code have errors (I don't know why).
-// $("#main").append(bio.welcome message);
-// $("#main").append(bio.pictureURL);
-
-// Example of appending object properties to the html
-// $("#main").append(bio.skills);
-// $("#main").append(bio.role);
-// $("#main").append(bio.name);
-// $("#main").append(bio.employment);
-// $("#main").append(bio.school);
-// $("#main").append(education.name);
-// $("#main").append(work.lastEmployer);
-
-
-//format name and role and append to header
-var formattedName = HTMLheaderName.replace('%data%', bio.name);
-$("#header").append(formattedName);
-var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-$("#header").append(formattedRole);
-// TODO bioPic url is creating an error - sort it out.
-// var formattedBioPic = HTMLbioPic.replace('%data', bio.bioPic);
-// $("#header").append(formattedBioPic);
-
-//format and append contact info
-var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
-$('#topContacts').append(formattedMobile);
-var formattedEmail = HTMLmobile.replace('%data%', bio.contacts.email);
-$('#topContacts').append(formattedEmail);
-var formattedGitHub = HTMLmobile.replace('%data%', bio.contacts.GitHub);
-$('#topContacts').append(formattedGitHub);
-var formattedWebSite = HTMLwebSite.replace('%data%', bio.contacts.webSite);
-$('#topContacts').append(formattedWebSite);
-var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
-$('#topContacts').append(formattedLocation);
-
-
-
-
-
-// Example of formatting and displaying bio.skills property without using a function.
-if (bio.skills.length > 0) {
-	$("#header").append(HTMLskillsStart);
-
-	var formattedSkill = HTMLskills.replace('%data%', bio.skills[0]);
-	$("#skills").append(formattedSkill);
-	var formattedSkill = HTMLskills.replace('%data%', bio.skills[1]);
-	$("#skills").append(formattedSkill);
-	var formattedSkill = HTMLskills.replace('%data%', bio.skills[2]);
-	$("#skills").append(formattedSkill);
-	var formattedSkill = HTMLskills.replace('%data%', bio.skills[3]);
-	$("#skills").append(formattedSkill);
-} 
-
-
-// function to format and display work properties
-function displayWork() {
-	for (job in work.jobs) {
-		$("#workExperience").append(HTMLworkStart);
-		var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
-		var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
-		var formattedEmployerTitle = formattedEmployer + formattedTitle;
-		var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
-		var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
-		var formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
-
-		$(".work-entry:last").append(formattedEmployerTitle);
-		$(".work-entry:last").append(formattedDates);
-		$(".work-entry:last").append(formattedLocation);
-		$(".work-entry:last").append(formattedDescription);
-	}	
-}
-
-displayWork();
-
-
-//logs where the user clicks on the page using a J-Query event object (loc)
-$(document).click(function(loc) {
-  var x = loc.pageX;
-  var y = loc.pageY;
-
-  logClicks(x, y);
-});
-
-
-// internationalize Button
-$("#main").append(internationalizeButton);
-function inName(name) {
-	name = name.trim().split(" ");
-	name[1] = name[1].toUpperCase();
-	name[0] = name[0].slice(0,1).toUpperCase() +
-			  name[0].slice(1).toLowerCase();
-
-	return name[0] + " " + name[1];
-}
-
 // adding a display() function property to the projects object that displays the other properties. 
 // Nice way to organize work.
 projects.display = function() {
@@ -246,11 +223,29 @@ projects.display = function() {
 		$(".project-entry:last").append(formattedImage);	
 	}
 } 
-
 projects.display();
 
 // Appends map
 $("#mapDiv").append(googleMap);
+
+//logs where the user clicks on the page using a J-Query event object (loc)
+$(document).click(function(loc) {
+  var x = loc.pageX;
+  var y = loc.pageY;
+
+  logClicks(x, y);
+});
+
+// internationalize Button
+$("#main").append(internationalizeButton);
+function inName(name) {
+	name = name.trim().split(" ");
+	name[1] = name[1].toUpperCase();
+	name[0] = name[0].slice(0,1).toUpperCase() +
+			  name[0].slice(1).toLowerCase();
+
+	return name[0] + " " + name[1];
+}
 
 
 
