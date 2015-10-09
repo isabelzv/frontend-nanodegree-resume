@@ -42,18 +42,6 @@ $("#header").append(formattedRole);
 // var formattedBioPic = HTMLbioPic.replace('%data', bio.bioPic);
 // $("#header").append(formattedBioPic);
 
-//format and append contact info
-var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
-$('#topContacts').append(formattedMobile);
-var formattedEmail = HTMLmobile.replace('%data%', bio.contacts.email);
-$('#topContacts').append(formattedEmail);
-var formattedGitHub = HTMLmobile.replace('%data%', bio.contacts.GitHub);
-$('#topContacts').append(formattedGitHub);
-var formattedWebSite = HTMLwebSite.replace('%data%', bio.contacts.webSite);
-$('#topContacts').append(formattedWebSite);
-var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
-$('#topContacts').append(formattedLocation);
-
 // Example of formatting and displaying bio.skills property without using a function.
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
@@ -68,20 +56,31 @@ if (bio.skills.length > 0) {
 	$("#skills").append(formattedSkill);
 } 
 
+//format and append contact info
+var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
+$('#header').append(formattedMobile);
+var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
+$('#header').append(formattedEmail);
+var formattedGitHub = HTMLgithub.replace('%data%', bio.contacts.GitHub);
+$('#header').append(formattedGitHub);
+var formattedWebSite = HTMLwebSite.replace('%data%', bio.contacts.webSite);
+$('#header').append(formattedWebSite);
+var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
+$('#header').append(formattedLocation);
 
 var work = {
 	// TODO add description properties to position objects. 
 	"jobs": [
 		{
 			"employer": "Microsoft", 
-			"location": "Redmond, WA",
+			"location": "Redmond, WA, USA",
 			"title": "SDT",
 			"dates": "02/15 - 06/15",
 			"description": ""
 		},
 		{
 			"employer": "Stohke.com", 
-			"location": "Bellevue, WA",
+			"location": "Bellevue, WA, USA",
 			"title": "QA Specialist",
 			"dates": "07/13 - 09/14",
 			"description": "- Performed in-depth blackbox testing of mobile applications on Windows Phone and IOS platforms"+
@@ -136,14 +135,14 @@ var education = {
     "schools": [
         {
             "name": "University of Washington",
-            "location": "Seattle, WA",
+            "location": "Seattle, WA, USA",
             "degree": "Software Testing and Quality Assurence Certificate",
             "url": "http://www.washington.edu",
             "dates": "09/14 - 03/15"
         },
         {
             "name": "Simon Fraser University",
-            "location": "Vancouver, Canada",
+            "location": "Vancouver, BC, Canada",
             "degree": "BA",
             "major": ["Education"],
             "url": "http://www.sfu.ca",
@@ -161,13 +160,12 @@ var education = {
             "dates": "09/03 - 06-06"
         }
     ],
-    "online courses": [
+    "onlineCourses": [
         {
-            "name": "Udacity",
-            "degree": "nano degree",
-            "major": ["Front End Web Development"],
-            "url": "https://www.udacity.com",
-            "dates": "08/15 - present"
+        	"title": "Front-End Web Developer NanoDegree",
+            "school": "Udacity",
+            "dates": "08/15 - present",
+            "url": "https://www.udacity.com"
         }
     ]
 }
@@ -187,6 +185,17 @@ education.display = function() {
 		var formattedMajor = HTMLschoolMajor.replace('%data%', education.schools[school].major);
 		$(".education-entry:last").append(formattedMajor);
 	}	
+	for (course in education.onlineCourses) {
+		$("#education").append(HTMLonlineClasses);
+		var formattedTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[course].title);
+		$(".education-entry:last").append(formattedTitle);
+		var formattedSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[course].school);
+		$(".education-entry:last").append(formattedSchool);
+		var formattedDates = HTMLonlineDates.replace('%data%', education.onlineCourses[course].dates);
+		$(".education-entry:last").append(formattedDates);
+		var formattedURL = HTMLonlineURL.replace('%data%', education.onlineCourses[course].url);
+		$(".education-entry:last").append(formattedURL);
+	}
 }
 education.display();
 
