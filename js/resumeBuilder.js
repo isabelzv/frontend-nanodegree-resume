@@ -18,11 +18,12 @@ var bio = {
 	"role": "Web Developer",
 	"skills": ["HTML, ", "CSS, ", "JavaScript, ", "Python, ", "Git and GitHub, ", 
 				"FrontEnd Web Development, ", "Quality Assurence"],
-	"pictureURL": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/093/03a/170349e.jpg",
+	"bioPic": "https://plus.google.com/u/0/me",
 	"contacts": {
 		"mobile": "425 533-4884",
 		"email": "isabelzv@hotmail.com",
-		"webpage": "http://isabelzv.github.io",
+		"webSite": "http://isabelzv.github.io",
+		"location": "Boulder, CO",
 		"GitHub": "isabelzv"
 	},
 	"welcome message": "Welcome to my resume."
@@ -77,23 +78,26 @@ var work = {
 // 	education["years"] = "2003 -2006";
 // 	education["location"] = "Cambridge, UK";
 
-var Education = {
+var education = {
     "schools": [
         {
             "name": "University of Washington",
+            "location": "Seattle, WA",
             "degree": "Software Testing and Quality Assurence Certificate",
             "url": "http://www.washington.edu",
             "dates": "09/14 - 03/15"
         },
         {
             "name": "Simon Fraser University",
+            "location": "Vancouver, Canada",
             "degree": "BA",
-            "major": "Education",
+            "major": ["Education"],
             "url": "http://www.sfu.ca",
             "dates": "01/10 - 12/10"
         },
         {
             "name": "Cambridge University",
+            "location": "Cambridge, UK",
             "degree": "BA",
             "major": [
                 "Education",
@@ -107,30 +111,30 @@ var Education = {
         {
             "name": "Udacity",
             "degree": "nano degree",
-            "major": "Front End Web Development",
+            "major": ["Front End Web Development"],
             "url": "https://www.udacity.com",
             "dates": "08/15 - present"
         }
     ]
 }
 
-var projects = 
-	[ 	
+var projects = {
+	"projects": [
 		{
 			"title": "Portfolio",
 			"dates": "08/15 - 09/15",
 			"description": "Created a website to host my portfolio. My first front end web development project "+
 						   "I learnt a lot about HTML and CSS",
-			"images": "http://isabelzv.github.io"
+			"image": "http://isabelzv.github.io/images/mountain-hike-sml.jpg"
 		},
 		{
 			"title": "Interactive Resume",
 			"dates": "09/15 - 10/15",
 			"description": "Created an interactive resume to showcase my work and skills. My first project using JS",
-			"images": "http://example"
+			"image": ""
 		}
 	]
-
+}
 
 // the following two lines of code have errors (I don't know why).
 // $("#main").append(bio.welcome message);
@@ -146,7 +150,32 @@ var projects =
 // $("#main").append(work.lastEmployer);
 
 
+//format name and role and append to header
+var formattedName = HTMLheaderName.replace('%data%', bio.name);
+$("#header").append(formattedName);
+var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+$("#header").append(formattedRole);
+// TODO bioPic url is creating an error - sort it out.
+// var formattedBioPic = HTMLbioPic.replace('%data', bio.bioPic);
+// $("#header").append(formattedBioPic);
 
+//format and append contact info
+var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
+$('#topContacts').append(formattedMobile);
+var formattedEmail = HTMLmobile.replace('%data%', bio.contacts.email);
+$('#topContacts').append(formattedEmail);
+var formattedGitHub = HTMLmobile.replace('%data%', bio.contacts.GitHub);
+$('#topContacts').append(formattedGitHub);
+var formattedWebSite = HTMLwebSite.replace('%data%', bio.contacts.webSite);
+$('#topContacts').append(formattedWebSite);
+var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
+$('#topContacts').append(formattedLocation);
+
+
+
+
+
+// Example of formatting and displaying bio.skills property without using a function.
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
 
@@ -160,15 +189,71 @@ if (bio.skills.length > 0) {
 	$("#skills").append(formattedSkill);
 } 
 
-for (job in work.jobs) {
-	$("#workExperience").append(HTMLworkStart);
 
-	var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
-	var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
-	var formattedEmployerTitle = formattedEmployer + formattedTitle;
-	
-	$(".work-entry:last").append(formattedEmployerTitle);
+// function to format and display work properties
+function displayWork() {
+	for (job in work.jobs) {
+		$("#workExperience").append(HTMLworkStart);
+		var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[job].employer);
+		var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[job].title);
+		var formattedEmployerTitle = formattedEmployer + formattedTitle;
+		var formattedDates = HTMLworkDates.replace('%data%', work.jobs[job].dates);
+		var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[job].location);
+		var formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[job].description);
+
+		$(".work-entry:last").append(formattedEmployerTitle);
+		$(".work-entry:last").append(formattedDates);
+		$(".work-entry:last").append(formattedLocation);
+		$(".work-entry:last").append(formattedDescription);
+	}	
 }
+
+displayWork();
+
+
+//logs where the user clicks on the page using a J-Query event object (loc)
+$(document).click(function(loc) {
+  var x = loc.pageX;
+  var y = loc.pageY;
+
+  logClicks(x, y);
+});
+
+
+// internationalize Button
+$("#main").append(internationalizeButton);
+function inName(name) {
+	name = name.trim().split(" ");
+	name[1] = name[1].toUpperCase();
+	name[0] = name[0].slice(0,1).toUpperCase() +
+			  name[0].slice(1).toLowerCase();
+
+	return name[0] + " " + name[1];
+}
+
+// adding a display() function property to the projects object that displays the other properties. 
+// Nice way to organize work.
+projects.display = function() {
+	for (project in projects.projects) {
+		$("#projects").append(HTMLprojectStart);
+		var formattedTitle = HTMLprojectTitle.replace('%data%', projects.projects[project].title);
+		$(".project-entry:last").append(formattedTitle);
+		var formattedDates = HTMLprojectDates.replace('%data%', projects.projects[project].dates);
+		$(".project-entry:last").append(formattedDates);
+		var formattedDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
+		$(".project-entry:last").append(formattedDescription);
+		var formattedImage = HTMLprojectImage.replace('%data%', projects.projects[project].image);
+		$(".project-entry:last").append(formattedImage);	
+	}
+} 
+
+projects.display();
+
+// Appends map
+$("#mapDiv").append(googleMap);
+
+
+
 
 
 
