@@ -16,8 +16,8 @@
 var bio = {
 	"name": "Isabel Zv",
 	"role": "Web Developer",
-	"skills": ["HTML, ", "CSS, ", "JavaScript, ", "Python, ", "Git and GitHub, ", 
-				"FrontEnd Web Development, ", "Quality Assurence"],
+	"skills": ["HTML", "CSS", "JavaScript", "Python", "Git and GitHub", 
+				"FrontEnd Web Development", "Quality Assurence"],
 	"bioPic": "https://plus.google.com/u/0/me",
 	"contacts": {
 		"mobile": "425 533-4884",
@@ -53,6 +53,8 @@ if (bio.skills.length > 0) {
 	var formattedSkill = HTMLskills.replace('%data%', bio.skills[2]);
 	$("#skills").append(formattedSkill);
 	var formattedSkill = HTMLskills.replace('%data%', bio.skills[3]);
+	$("#skills").append(formattedSkill);
+	var formattedSkill = HTMLskills.replace('%data%', bio.skills[4]);
 	$("#skills").append(formattedSkill);
 } 
 
