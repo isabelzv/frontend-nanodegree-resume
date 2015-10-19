@@ -1,24 +1,14 @@
-// Example of appending to the main section of the HTML
-// $("#main").append(funThoughts);
 
-// Example of how to use the string.replace method
-// var name = "Isabel Zv";
-// var formattedName = HTMLheaderName.replace("%data%", name);
-
-// var role = "Web Developer";
-// var formattedRole = HTMLheaderRole.replace("%data%", role);
-
-// Example of appending and prepending to the header
-// $("#header").append(formattedRole);
-// $("#header").prepend(formattedName);
-
+var banner = {
+	"img": "images/glacier-park-landscape-lrg.jpg"
+}
 
 var bio = {
 	"name": "Isabel Zv",
 	"role": "Web Developer",
 	"skills": ["HTML", "CSS", "JavaScript", "Python", "Git and GitHub", 
 				"FrontEnd Web Development", "Quality Assurence"],
-	"bioPic": "https://plus.google.com/u/0/me",
+	"bioPic": "images/bio-pic.jpg",
 	"contacts": {
 		"mobile": "425 533-4884",
 		"email": "isabelzv@hotmail.com",
@@ -26,21 +16,18 @@ var bio = {
 		"location": "Boulder, CO",
 		"GitHub": "isabelzv"
 	},
-	"welcome message": "Welcome to my resume."
+	"welcomeMsg": "Welcome to my resume."
 }
 
-// Example of how to add a property to an object after declaring it.
-// bio.city = "Boulder, CO";
-// bio["city"] = "Boulder, CO";
+var formattedBanner = HTMLbanner.replace('%data%', banner.img);
+$(".banner").append(formattedBanner);
 
-//format name and role and append to header
-var formattedName = HTMLheaderName.replace('%data%', bio.name);
-$("#header").append(formattedName);
-var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-$("#header").append(formattedRole);
-// TODO bioPic url is creating an error - sort it out.
-// var formattedBioPic = HTMLbioPic.replace('%data', bio.bioPic);
-// $("#header").append(formattedBioPic);
+var formattedBioPic = HTMLbioPic.replace('%data%', bio.bioPic);
+$("#header").append(formattedBioPic);
+// var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
+// $("#header").append(formattedRole);
+var formattedwelcomeMsg = HTMLwelcomeMsg.replace('%data%', bio.welcomeMsg);
+$("#header").append(formattedwelcomeMsg);
 
 // Example of formatting and displaying bio.skills property without using a function.
 if (bio.skills.length > 0) {
@@ -58,17 +45,29 @@ if (bio.skills.length > 0) {
 	$("#skills").append(formattedSkill);
 } 
 
-//format and append contact info
+//format and append contact info to header
 var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
-$('#header').append(formattedMobile);
+$('#topContacts').append(formattedMobile);
 var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
-$('#header').append(formattedEmail);
+$('#topContacts').append(formattedEmail);
 var formattedGitHub = HTMLgithub.replace('%data%', bio.contacts.GitHub);
-$('#header').append(formattedGitHub);
+$('#topContacts').append(formattedGitHub);
 var formattedWebSite = HTMLwebSite.replace('%data%', bio.contacts.webSite);
-$('#header').append(formattedWebSite);
+$('#topContacts').append(formattedWebSite);
 var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
-$('#header').append(formattedLocation);
+$('#topContacts').append(formattedLocation);
+
+//format and append contact info to footer
+var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
+$('#footerContacts').append(formattedMobile);
+var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
+$('#footerContacts').append(formattedEmail);
+var formattedGitHub = HTMLgithub.replace('%data%', bio.contacts.GitHub);
+$('#footerContacts').append(formattedGitHub);
+var formattedWebSite = HTMLwebSite.replace('%data%', bio.contacts.webSite);
+$('#footerContacts').append(formattedWebSite);
+var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
+$('#footerContacts').append(formattedLocation);
 
 var work = {
 	// TODO add description properties to position objects. 
@@ -78,7 +77,10 @@ var work = {
 			"location": "Redmond, WA, USA",
 			"title": "SDT",
 			"dates": "02/15 - 06/15",
-			"description": ""
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."+
+						   " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."+
+						   " Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."+
+						   "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 		},
 		{
 			"employer": "Stohke.com", 
@@ -97,14 +99,20 @@ var work = {
 			"location": "Dawson Creek, BC, Canada",
 			"title": "Teacher",
 			"dates": "01/10 - 06/10",
-			"description": ""
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."+
+						   " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."+
+						   " Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."+
+						   "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 		},
 		{
 			"employer": "Rocky Mountain Flatbread Education Society", 
 			"location": "Vancouver, BC, Canada",
 			"title": "Program Developer",
 			"dates": "09/06 - 09/10",
-			"description": ""			
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."+
+						   " Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."+
+						   " Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."+
+						   "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."			
 		}
 	]
 }
@@ -139,6 +147,7 @@ var education = {
             "name": "University of Washington",
             "location": "Seattle, WA, USA",
             "degree": "Software Testing and Quality Assurence Certificate",
+            "major": ["Quality Assurence"],
             "url": "http://www.washington.edu",
             "dates": "09/14 - 03/15"
         },
@@ -156,7 +165,7 @@ var education = {
             "degree": "BA",
             "major": [
                 "Education",
-                "History"
+                " History"
             ],
             "url": "https://www.cam.ac.uk",
             "dates": "09/03 - 06-06"
@@ -188,7 +197,7 @@ education.display = function() {
 		$(".education-entry:last").append(formattedMajor);
 	}	
 	for (course in education.onlineCourses) {
-		$("#education").append(HTMLonlineClasses);
+		$(".education-entry:last").append(HTMLonlineClasses);
 		var formattedTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[course].title);
 		$(".education-entry:last").append(formattedTitle);
 		var formattedSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[course].school);
@@ -208,13 +217,13 @@ var projects = {
 			"dates": "08/15 - 09/15",
 			"description": "Created a website to host my portfolio. My first front end web development project "+
 						   "I learnt a lot about HTML and CSS",
-			"image": "http://isabelzv.github.io/images/mountain-hike-sml.jpg"
+			"image": ["images/mountain-hike-sml.jpg", "images/montana-sunset-sml.jpg"]
 		},
 		{
 			"title": "Interactive Resume",
 			"dates": "09/15 - 10/15",
-			"description": "Created an interactive resume to showcase my work and skills. My first project using JS",
-			"image": ""
+			"description": "Created an interactive resume to showcase my work and skills. My first project using JavaScript and jQuery",
+			"image": ["images/mountain-hike-sml.jpg", "images/montana-sunset-sml.jpg"]
 		}
 	]
 }
@@ -230,8 +239,10 @@ projects.display = function() {
 		$(".project-entry:last").append(formattedDates);
 		var formattedDescription = HTMLprojectDescription.replace('%data%', projects.projects[project].description);
 		$(".project-entry:last").append(formattedDescription);
-		var formattedImage = HTMLprojectImage.replace('%data%', projects.projects[project].image);
+		var formattedImage = HTMLprojectImage.replace('%data%', projects.projects[project].image[0]);
 		$(".project-entry:last").append(formattedImage);	
+		var formattedImage = HTMLprojectImage.replace('%data%', projects.projects[project].image[1]);
+		$(".project-entry:last").append(formattedImage);
 	}
 } 
 projects.display();
@@ -247,16 +258,28 @@ $(document).click(function(loc) {
   logClicks(x, y);
 });
 
-// internationalize Button
-$("#main").append(internationalizeButton);
-function inName(name) {
-	name = name.trim().split(" ");
-	name[1] = name[1].toUpperCase();
-	name[0] = name[0].slice(0,1).toUpperCase() +
-			  name[0].slice(1).toLowerCase();
+$('.anchor-link').click(function(){
+    $('html, body').animate({
+        // Keep 80 off top for fixed nav bar
+        scrollTop: $( $(this).attr('href') ).offset().top - 80
+    }, 500);
+    return false;
+});
 
-	return name[0] + " " + name[1];
-}
+// // internationalize Button
+// $("#main").append(internationalizeButton);
+// function inName(name) {
+// 	name = name.trim().split(" ");
+// 	name[1] = name[1].toUpperCase();
+// 	name[0] = name[0].slice(0,1).toUpperCase() +
+// 			  name[0].slice(1).toLowerCase();
+
+// 	return name[0] + " " + name[1];
+// }
+
+// document.getElementById("workExperience").onclick = function () {
+//     location.href = "workExperience.html";
+// };
 
 
 
