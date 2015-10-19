@@ -35,7 +35,6 @@ h2 {
   color: #999;
   line-height: 29px;
   padding:10px 5%;
-  /*padding-top: 80px;*/
 }
 
 h3 {
@@ -92,10 +91,10 @@ a {
   background-color: powderblue;
   margin-top: 0px;
 }
+
 .navbar-header {
   padding-left: none;
   padding-right: none;
-  line-height: 80px;
 }
 
 .navbar-default {
@@ -119,10 +118,6 @@ a {
   border: none;
 }
 
-.role {
-  color: #999;
-  font-size: 14px;
-}
 .clear-fix {
   overflow: auto;
 }
@@ -135,13 +130,17 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #f3f3f3;
+  color: grey;
   line-height: 28px;
+  padding-left: 10px;
 }
 
-#skills-h3 {
-  color: black;
-  display: none;
+.role {
+  font-style: italic;
+  font-size: 18px;
+  color: grey;
+  line-height: 28px;
+  padding-left: 10px;
 }
 
 .powderblue {
@@ -149,17 +148,12 @@ a {
   padding-top: 10px;
 }
 
-.grey-text {
-  color: #999;
-}
-
 .darkgrey-text {
-  color: black;
+  color: grey;
 }
 
-.white-text {
-  /*font-weight: bold;*/
-  color: white;
+.blue-text {
+  color: deepskyblue;
 }
 
 .gray {
@@ -173,8 +167,7 @@ a {
 }
 
 #header {
-  background-image: url('../images/honeycomb-background.jpg');
-  /*background: azure;*/
+  background-image: url('../images/abstract-background.jpg');
 }
 
 .flex-box {
@@ -194,28 +187,20 @@ ul {
   list-style-type: none;
 }
 
-.biopic {
-  float: left;
-  width: 200px;
-  .image-rounded();
-  border: solid white 2px;
-  padding: 10px;
-  display: none;
-}
-
 img {
   padding: 10px;
 }
 
-.banner {
-  /*opacity: 0.8;*/
-  padding-left: 0px;
-  padding-right: 0px;
+.biopic {
+  float: left;
+  width: 200px;
+  border: solid grey 2px;
+  display: none;
 }
 
-.map {
-  padding-bottom: 60px;
-  display: inline-block;
+.banner {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 span {
@@ -228,9 +213,34 @@ span {
 
 /* Media queries to handle various device widths */
 
-@media only screen and (max-width: 1024px) {
+/*Increase font size when screen over 1024px wide*/
+@media only screen and (min-width: 1024px) {
   #lets-connect {
     margin-top: 5%;
+  }
+  .role {
+    font-size: 22px;
+  }
+  .welcome-message {
+    font-size: 22px;
+  }
+  .darkgrey-text {
+    font-size: 18px;
+  }
+  .white-text {
+    font-size: 18px;
+  }
+  a {
+    font-size: 18px;
+  }
+  p {
+    font-size: 16px;
+  }
+  .date-text {
+    font-size: 18px;
+  }
+  .location-text {
+    font-size: 18px;
   }
 }
 
@@ -256,7 +266,6 @@ span {
   display: block;
   height: 100%;
   margin: 0 5%;
-
 }
 
 #mapDiv {

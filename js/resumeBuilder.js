@@ -1,3 +1,4 @@
+// javascript file to make, and display objects.
 
 var banner = {
 	"img": "images/glacier-park-landscape-lrg.jpg"
@@ -5,7 +6,7 @@ var banner = {
 
 var bio = {
 	"name": "Isabel Zv",
-	"role": "Web Developer",
+	"role": "Web Developer Extraordinaire.",
 	"skills": ["HTML", "CSS", "JavaScript", "Python", "Git and GitHub", 
 				"FrontEnd Web Development", "Quality Assurence"],
 	"bioPic": "images/bio-pic.jpg",
@@ -24,10 +25,11 @@ $(".banner").append(formattedBanner);
 
 var formattedBioPic = HTMLbioPic.replace('%data%', bio.bioPic);
 $("#header").append(formattedBioPic);
-// var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-// $("#header").append(formattedRole);
+var formattedRole = HTMLrole.replace('%data%', bio.role);
+$("#header").append(formattedRole);
 var formattedwelcomeMsg = HTMLwelcomeMsg.replace('%data%', bio.welcomeMsg);
 $("#header").append(formattedwelcomeMsg);
+
 
 // Example of formatting and displaying bio.skills property without using a function.
 if (bio.skills.length > 0) {
@@ -70,7 +72,6 @@ var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
 $('#footerContacts').append(formattedLocation);
 
 var work = {
-	// TODO add description properties to position objects. 
 	"jobs": [
 		{
 			"employer": "Microsoft", 
@@ -277,9 +278,6 @@ $('.anchor-link').click(function(){
 // 	return name[0] + " " + name[1];
 // }
 
-// document.getElementById("workExperience").onclick = function () {
-//     location.href = "workExperience.html";
-// };
 
 
 

@@ -12,24 +12,23 @@ Cameron Pittman
 These are HTML strings. As part of the course, you'll be using JavaScript functions
 replace the %data% placeholder text you see in them.
 */
-// var HTMLheaderName = '<h1 id="name">%data%</h1>';
-// var HTMLheaderRole = '<span>%data%</span><hr/>';
 
 var HTMLbanner = '<img src="%data%" class="banner img-responsive img-rounded center-block">';
 
-var HTMLwebSite = '<li class="flex-item"><span class="darkgrey-text">web</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="darkgrey-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="darkgrey-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="darkgrey-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="darkgrey-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="darkgrey-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="darkgrey-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLwebSite = '<li class="flex-item"><span class="darkgrey-text">web</span><span class="blue-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item"><span class="darkgrey-text">mobile</span><span class="blue-text">%data%</span></li>';
+var HTMLemail = '<li class="flex-item"><span class="darkgrey-text">email</span><span class="blue-text">%data%</span></li>';
+var HTMLtwitter = '<li class="flex-item"><span class="darkgrey-text">twitter</span><span class="blue-text">%data%</span></li>';
+var HTMLgithub = '<li class="flex-item"><span class="darkgrey-text">github</span><span class="blue-text">%data%</span></li>';
+var HTMLblog = '<li class="flex-item"><span class="darkgrey-text">blog</span><span class="blue-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><span class="darkgrey-text">location</span><span class="blue-text">%data%</span></li>';
 
-var HTMLbioPic = '<img src="%data%" class="biopic img-rounded">';
+var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
+var HTMLrole = '<span class="role">%data%</span>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+var HTMLskillsStart = '<ul id="skills" class="flex-box"></ul>';
+var HTMLskills = '<li class="flex-item"><span class="blue-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
@@ -42,7 +41,7 @@ var HTMLprojectStart = '<div class="project-entry"></div>';
 var HTMLprojectTitle = '<a href="#">%data%</a>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
-var HTMLprojectImage = '<img src="%data%">';
+var HTMLprojectImage = '<img src="%data%" class="img-responsive">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
@@ -57,19 +56,18 @@ var HTMLonlineSchool = '<div>%data%</div>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
-// var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map" class="map"></div>';
 
 
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
-$(document).ready(function() {
-  $('button').click(function() {
-    var iName = inName() || function(){};
-    $('#name').html(iName);  
-  });
-});
+// $(document).ready(function() {
+//   $('button').click(function() {
+//     var iName = inName() || function(){};
+//     $('#name').html(iName);  
+//   });
+// });
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
