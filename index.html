@@ -1,23 +1,8 @@
 <!DOCTYPE html>
-
-<!--
-This is an HTML document. It contains information about how elements in the website
-are arranged. In other words, it describes the layout of a website.
-
-I can't wait to see the resumes you put together!
-
-Cameron Pittman, Udacity Course Developer
--->
-
-<!--
-The <head> of a website generally links to important resources the page will
-need to load. You'll see a lot of <link>s to CSS files for styles and
-<scripts> for JavaScript files to build interactions.
--->
 <head>
   <!-- This tells the browser how to read the document. -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Resume</title>
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -30,91 +15,85 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <script src="js/bootstrap.min.js"></script>
   <script src="js/helper.js"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
-
-  <meta name="viewport" content="width=device-width">
 </head>
-<a name="home"></a>
+
 <body>
   <!-- Navbar code taken from Bootsrap website and modified with the help of https://www.youtube.com/watch?v=KHziRivtmho tutorial. -->
   <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Isabel Z.v.</a>
-      
-    </div>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Isabel Z.v.</a>    
+      </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#home" class="anchor-link">Home</a></li>
-        <li><a href="#workExperience" class="anchor-link">Work Experience</a></li>
-        <li><a href="#projects" class="anchor-link">Projects</a></li>
-        <li><a href="#education" class="anchor-link">Education</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-<div class="top">
-</div>
-
-<div class="container-fluid">
-  <div id="main">
-
-    <!--
-    Everything from here to the <script> tag below is the skeleton of your
-    website. Your code will add information to each of the sections of the
-    resume below. You can pretty easily figure out what each section will
-    display by looking at the id or at what's written between the <h2> tags.
-    -->
-    <div class="row">
-      <div id="banner" class="banner img-responsive center-block img-rounded clear-fix">
-    </div>
-    <header class="row">
-      <div id="header" class="center-content clear-fix">
-        <ul id="topContacts" class="flex-box"></ul>
-      </div>
-    </header>
-    <section class="row">
-      <div style="clear: both;">
-        <div id="workExperience" class="gray">
-          <a name="workExperience"></a>
-          <h2>Work Experience</h2>
-        </div>
-      </div>
-    </section>
-    <section class="row">
-      <div id="projects">
-        <a name="projects"></a>
-        <h2>Projects</h2>
-      </div>
-    </section>
-    <section class="row">
-      <div id="education" class="gray">
-        <a name="education"></a>
-        <h2>Education</h2>
-      </div>
-    </section>
-    <section class="row">
-      <div id="mapDiv">
-        <h2>Where I've Lived and Worked</h2>
-      </div>
-    </section>
-    <footer class="row">
-      <div id="lets-connect" class="dark-gray">
-        <h2 class="powderblue center-text">Let's Connect</h2>
-           <ul id="footerContacts" class="flex-box">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#main" class="anchor-link">Home</a></li>
+          <li><a href="#workExperience" class="anchor-link">Work Experience</a></li>
+          <li><a href="#projects" class="anchor-link">Projects</a></li>
+          <li><a href="#education" class="anchor-link">Education</a></li>
         </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="top"></div>
+
+  <div class="container-fluid">
+    <div id="main">
+
+      <!--
+      Everything from here to the <script> tag below is the skeleton of your
+      website. Your code will add information to each of the sections of the
+      resume below. You can pretty easily figure out what each section will
+      display by looking at the id or at what's written between the <h2> tags.
+      -->
+      <div class="row">
+        <div id="banner" class="banner img-responsive center-block img-rounded clear-fix">
       </div>
-    </footer>
+      <header class="row">
+        <div id="header" class="center-content clear-fix">
+          <ul id="topContacts" class="flex-box"></ul>
+        </div>
+      </header>
+      <section class="row">
+        <div style="clear: both;">
+          <div id="workExperience" class="gray">
+            <h2>Work Experience</h2>
+          </div>
+        </div>
+      </section>
+      <section class="row">
+        <div id="projects">
+          <h2>Projects</h2>
+        </div>
+      </section>
+      <section class="row">
+        <div id="education" class="gray">
+          <h2>Education</h2>
+        </div>
+      </section>
+      <section class="row">
+        <div id="mapDiv">
+          <h2>Where I've Lived and Worked</h2>
+        </div>
+      </section>
+      <footer class="row">
+        <div id="lets-connect" class="dark-gray">
+          <h2 class="powderblue center-text">Let's Connect</h2>
+             <ul id="footerContacts" class="flex-box">
+          </ul>
+        </div>
+      </footer>
+    </div>
   </div>
-</div>
+  </div>
   <!--
   The next line tells the browser where to download the JavaScript file you'll be
   writing. In resumeBuilder.js, you'll be writing code that builds the resume
@@ -169,4 +148,4 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     }
   </script>
 </body>
-</html>
+

@@ -87,14 +87,18 @@ a {
   display: block;
 }
 
+.weblink {
+  display: inline;
+}
+
 .navbar-nav {
   background-color: powderblue;
   margin-top: 0px;
 }
 
 .navbar-header {
-  padding-left: none;
-  padding-right: none;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .navbar-default {
@@ -111,7 +115,6 @@ a {
   font-family: "Lato", sans-serif;
   font-size: 40px;
   text-align: left;
-  padding: none; 
 }
 
 .navbar-toggle {
@@ -227,7 +230,7 @@ span {
   .darkgrey-text {
     font-size: 18px;
   }
-  .white-text {
+  .blue-text {
     font-size: 18px;
   }
   a {
